@@ -21,11 +21,11 @@ Rails will give you the freedom and flexiblity to create or edit the colums in y
 ```bash
 app
 ├── controllers
-│   └── Authors
+│   └── Users
 │   └── Posts
 │   └── Comments
 ├── models
-│   └── author.rb
+│   └── user.rb
 │   └── post.rb
 │   └── comment.rb
 ├── views
@@ -37,7 +37,7 @@ config
 │   └── database.yml
 db  
 ├── migrate
-│   └── xxxxxxxxx_create_articles.rb
+│   └── xxxxxxxxx_create_users.rb
 │   └── xxxxxxxxx_create_posts.rb
 │   └── xxxxxxxxx_create_comments.rb
 ├── shema.rb
@@ -50,30 +50,39 @@ README.md
 
 - Ruby, Ruby Gems, Rubocop, and target URL.
 
+## Build
+
+1. Build a new Rails app type in terminal. (Replace xxxxx with name of your choosing)
+    rails new xxxxx
+2. Change to project directory type in terminal. (Replace xxxxx with name from step one).
+    cd xxxxx
+3. Make user model for schema, go to terminal and type.
+    rails generate model User name:string email:string
+4. Make controller for model actions type in terminal.
+    rails generate controller Users
+5. Make post model for schema, go to terminal and type.
+    rails generate model Post title:string body:text user:references
+6. Make controller for model actions type in terminal.
+    rails generate controller Posts
+7. Make post model for schema, go to terminal and type.
+    rails generate model Comment body:text user:references post:references
+8. Make controller for model actions type in terminal.
+    rails generate controller Comments 
+9. Migrate your database type in terminal.
+    rails db:migrate
+
 ## Getting Started
 
 1. Clone directory $ git clone https://github.com/rootDEV2990/ruby_scraper
 2. Open terminal type cd /path/to/folder and hit enter.
-3. Install Ruby gems, type in terminal "bundle install".
-4. Run "ruby ./bin/main.rb" inside your terminal.
-5. Script will promp you to input your search query..input query and hit enter.
-6. Script will scrape and rescrape as user provides new inputs returning results. 
-7. Bottom table will display page available with results number inputs will be auto detected to pan pages. 
-8. You can click cmd+click on link to open in browser. 
-9. Press Ctrl+C to stop ruby script. 
+3. Install gems, type in terminal "bundle install".
+4. Run "rails s" inside your terminal.
+5. Direct your browser to https://localhost:3000/
+6. Press Ctrl+C to stop rails server. 
 
 ### Prerequisites
 
-Ruby installed on your computer to be able to run the script.
-
-## What it does:
-
-1. Targets a URL.
-2. Gets RAW HTML.
-3. Extracts targeted DATA.
-4. Displays values in terminal.
-5. Allows you to directly navicate to download page 
-(*Site requires you to be a member to downlaod, registration is free*)
+Ruby and Rails must be installed on your computer.
 
 ## Authors
 
